@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    {% block title %}<title>{{ title|capfirst }} Signup</title> {% endblock %}
+</head>
+<body>
+<a href="{% url signup_main %}">Signup Home</a>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% block body %}
+<ul>
+    <li><a href="{% url hello_world %}">Hello World</a></li>
+    <li><a href="{% url site_signup %}">Site Signup</a></li>
+</ul>
+{% endblock %}
+</body>
+</html>

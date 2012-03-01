@@ -1,0 +1,9 @@
+{% extends "signup/main.html" %}
+{% block body %}
+    <h1>Here are the latest shoutouts</h1>
+    <ul>
+        {% for h in hellos %}
+            <li>Name => <strong>{{ h.name }}</strong> Location => <strong>{{ h.location }}</strong> Message => <strong>{{ h.message|truncatewords:"10" }}...</strong></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
