@@ -25,3 +25,33 @@ class Signup(models.Model):
     def __unicode__(self):
         return self.name
 
+class Country(models.Model):
+    name = models.CharField(max_length=100)
+    population = models.BigIntegerField()
+
+    def __unicode__(self):
+        return self.name
+
+class City(models.Model):
+    country = models.ForeignKey('country', related_name='cities')
+    name = models.CharField(max_length=100)
+
+    def __unicode__(self):
+        return self.name
+
+
+class House(models.Model):
+    city = models.ManyToManyField('City', related_name='houses')
+    street = models.CharField(max_length=300)
+
+    def __unicode__(self):
+        return self.street
+
+class Mayor(models.Model):
+    name = models.CharField(max_length=100)
+    city = models.ForeignKey('City', related_name='mayor', unique=True)
+    house = models.ForeignKey('House')
+    has_kids = models.BooleanField(default=True)
+
+    def __unicode__(self):
+        return self.name
