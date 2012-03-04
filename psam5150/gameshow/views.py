@@ -30,19 +30,17 @@ class GameView(TemplateView):
         self.thegame.save()
 
     def post(self, request, *args, **kwargs):
-        self.form = GameScore(request.POST)
-        if self.form.is_valid():
+        form = GameScore(request.POST)
+        if form.is_valid():
             messages.add_message(self.request, messages.INFO, message="Enjoy your game!")
             return redirect('game_main')
         else:
-            return self.get(request)
+            return self.get(request, form=form)
 
     def get_context_data(self, **kwargs):
-        if not hasattr(self, 'form'):
-            self.form = GameScore()
         self._start_game()
         return {
-            'form': self.form,
+            'form': GameScore() if not kwargs.get('form') else kwargs['form'],
             'game': self.thegame,
             }
 
