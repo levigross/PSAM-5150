@@ -18,12 +18,17 @@ class SimpleTest(TestCase):
         for player in self.players[1:]:
             football.players = player
             football.save()
+        self.assertEquals(football.title, "The Big football game")
 
     def testHost(self):
         raise NotImplementedError
 
     def testPlayer(self):
         raise NotImplementedError
+
+    def tearDown(self):
+        pass
+
 
 
 

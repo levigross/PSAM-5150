@@ -1,6 +1,6 @@
 {% extends "signup/main.html" %}
 {% block body %}
-    <form enctype="multipart/form-data" action="{% url site_signup %}" method="post">
+    <form action="{% url site_signup %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Submit" />

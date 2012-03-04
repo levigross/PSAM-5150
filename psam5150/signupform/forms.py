@@ -12,4 +12,4 @@ class SignupForm(forms.ModelForm):
 
     class Meta:
         model = Signup
-        fields = ['name', 'email', 'reason_for_joining', 'picture', 'url']
+        fields = ['name', 'email', 'reason_for_joining', 'url']

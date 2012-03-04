@@ -39,8 +39,8 @@ def hello(request):
 
 def sitesignup(request):
     if request.method == 'POST':
-        form = SignupForm(request.POST, request.FILES)
-        if form.is_valid() and form.is_multipart():
+        form = SignupForm(request.POST)
+        if form.is_valid():
             form.save()
             messages.add_message(request, messages.INFO, "Your form has been submitted and will be processed in the order it was received")
             return redirect('signup_main')
