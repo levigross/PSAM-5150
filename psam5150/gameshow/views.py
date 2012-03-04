@@ -18,9 +18,6 @@ class GameMain(TemplateView):
 class GameView(TemplateView):
     template_name = 'gameshow/game.html'
 
-    def __init__(self, **kwargs):
-        super(TemplateView, self).__init__(**kwargs)
-
     def _start_game(self):
         player = Player.objects.create(name="Some Name", score=0)
         self.thegame = Game()
