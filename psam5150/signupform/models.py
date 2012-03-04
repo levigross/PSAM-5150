@@ -16,7 +16,6 @@ class Signup(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
     reason_for_joining = models.TextField()
-    picture = models.ImageField(upload_to='signupform/pics/')
     url = models.URLField(verify_exists=True)
     is_accepted = models.BooleanField(default=False)
     admin_comments = models.TextField(blank=True, null=True)
