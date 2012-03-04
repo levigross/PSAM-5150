@@ -2,7 +2,7 @@
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    {% block title %}<title>{{ title|capfirst }} Signup</title> {% endblock %}
+    <title>{% block title %}{{ title|capfirst }} Signup {% endblock %}</title>
 </head>
 <body>
 <a href="{% url signup_main %}">Signup Home</a>

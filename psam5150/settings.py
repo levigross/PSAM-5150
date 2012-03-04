@@ -47,7 +47,7 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = u"{0}/media".format(os.getcwdu())
+MEDIA_ROOT = u"%s/media" % os.getcwdu()
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -58,7 +58,7 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = '/static/'
+STATIC_ROOT = u"%s/mystatic/" % os.getcwdu()
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -71,9 +71,7 @@ ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-# Put strings here, like "/home/html/static" or "C:/www/django/static".
-# Always use forward slashes, even on Windows.
-# Don't forget to use absolute paths, not relative paths.
+    u"%s/static/" % os.getcwdu(),
 )
 
 # List of finder classes that know how to find static files in
@@ -105,7 +103,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'psam5150.urls'
 
 TEMPLATE_DIRS = (
-    u"{0}/templates/".format(os.getcwdu()),
+    u"%s/templates/" % os.getcwdu(),
     )
 
 INSTALLED_APPS = (
@@ -118,6 +116,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     'signupform',
+    'gameshow',
     )
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 

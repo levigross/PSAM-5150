@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>{% block title %} Welcome to GameDay! {% endblock %}</title>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/main.css" type="text/css" />
+</head>
+<body>
+<ul class="messages">
+    {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% block body %}
+    <a href="{% url play_game %}">Play a Game</a>
+    <h1>Number of Games</h1>
+    <h3>{{ num_games }}</h3>
+    <h1>Number of Players</h1>
+    <h3>{{ num_players }}</h3>
+{% endblock %}
+</body>
+</html>

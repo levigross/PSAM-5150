@@ -1,0 +1,9 @@
+{% extends "gameshow/main.html" %}
+{% block title %}{{ gamename|capfirst }} {% endblock %}
+{% block body %}
+    <form action="{% url play_game %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit"/>
+    </form>
+{% endblock %}
