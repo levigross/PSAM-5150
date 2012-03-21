@@ -1,0 +1,13 @@
+{% extends "appointments/base.html" %}
+{% block title %}{{ title }} {% endblock %}
+{% block content %}
+
+    <p>Welcome to the nicer version of our django site</p>
+
+    <p><a class="btn btn-primary btn-large" href="{% url book_appointment %}">Book an Appointment</a></p>
+
+    <p><a class="btn btn-primary btn-large" href="{% url add_contact %}">Add a Contact</a></p>
+
+    <p><a class="btn btn-primary btn-large" href="{% url add_event %}">Add an Event Type</a></p>
+{% endblock %}
+

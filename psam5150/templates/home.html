@@ -1,13 +1,30 @@
 <html>
 <head>
     <title>Welcome To Our Django Site</title>
+    {% block script %}
+        <script type="text/javascript" src="{{ STATIC_URL }}/js/bootstrap.min.js"></script> {% endblock %}
+    {% block style_sheets %}
+        <link href="{{STATIC_URL}}/css/bootstrap.css" rel="stylesheet">
+        <link href="{{STATIC_URL}}/css/bootstrap-responsive.css" rel="stylesheet">
+    {% endblock %}
 
 </head>
 <body>
-<h1>Hello for now!</h1>
-<ul>
-    <li><a href="{% url signup_main %}">Signup Form</a></li>
-    <li><a href="{% url game_main %}">Play a Game</a></li>
-</ul>
+<div class="container-fluid">
+    <div class="row">
+        <div class="span10 offset1">
+            <div class="hero-unit">
+                <div class="page-header"><h1>Thanks Twitter Bootstrap</h1></div>
+                <p>Welcome to the nicer version of our django site</p>
+
+                <p><a class="btn btn-primary btn-large" href="{% url signup_main %}">Signup Form</a></p>
+
+                <p><a class="btn btn-primary btn-large" href="{% url game_main %}">Play a Game</a></p>
+
+                <p><a class="btn btn-primary btn-large" href="{% url appointment_welcome_page %}">Book an Appointment</a></p>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

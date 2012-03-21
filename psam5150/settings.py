@@ -1,4 +1,6 @@
 # Django settings for psam5150 project.
+import sys, os
+sys.path.append(u"%s/lib" % os.getcwdu())
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -6,8 +8,6 @@ TEMPLATE_DEBUG = DEBUG
 ADMINS = (
     ('Some Name', 'your_email@example.com'),
     )
-
-import os
 
 MANAGERS = ADMINS
 
@@ -117,6 +117,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'signupform',
     'gameshow',
+    'appointments',
     )
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
@@ -124,6 +125,7 @@ FILE = ("django.core.files.uploadhandler.MemoryFileUploadHandler",
  "django.core.files.uploadhandler.TemporaryFileUploadHandler",)
 
 TEMPLATE_CONTEXT_PROCESSORS = (
+    "appointments.context_processors.counts",
     "django.core.context_processors.request",
     "django.contrib.auth.context_processors.auth",
     "django.core.context_processors.debug",

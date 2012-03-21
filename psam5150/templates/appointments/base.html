@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    {% block head %}
+        {% block script %}
+            <script type="text/javascript" src="{{ STATIC_URL }}/js/bootstrap.min.js"></script> {% endblock %}
+        {% block style_sheets %}
+            <link href="{{STATIC_URL}}/css/bootstrap.css" rel="stylesheet">
+            <link href="{{STATIC_URL}}/css/bootstrap-responsive.css" rel="stylesheet">
+        {% endblock %}
+        <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+</head>
+<body>
+{% block messages %}
+    {% for message in messages %}
+        <div class="alert alert-block">
+            <a class="close" data-dismiss="alert">×</a>
+            <h4 class="alert-heading">Attention!</h4>
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endblock %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="span12">
+            <div class="page-header"><h1>{% block pageheader %}{% endblock %}</h1></div>
+        </div>
+        <div class="span12">
+            <div class="row-fluid">
+                <div class="span7">
+                    <div class="hero-unit">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                </div>
+                <div class="span3 offset10">
+                    {% block badges %}
+                        <p><span class="badge">{{ num_contacts }}</span> Number of Contacts </p>
+
+                        <p><span class="badge">{{ num_events }}</span> Total Number of Events </p>
+
+                        <p><span class="badge badge-error">{{ events_today }}</span> Events Today </p>
+                    {% endblock %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
