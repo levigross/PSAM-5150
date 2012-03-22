@@ -11,7 +11,7 @@ class EventType(models.Model):
         return self.event_name
 
 class Appointment(models.Model):
-    created_on = models.DateTimeField(auto_now_add=True)
+    created_on = models.DateTimeField(auto_now_add=True, editable=False)
     updated_on = models.DateTimeField(auto_now_add=True)
     event_type = models.ForeignKey('EventType', unique=True, related_name="EventType")
     title = models.CharField(max_length=100)
