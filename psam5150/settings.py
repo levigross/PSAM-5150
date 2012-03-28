@@ -100,6 +100,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     )
 
+AUTH_PROFILE_MODULE = 'messageboard.'
+
 ROOT_URLCONF = 'psam5150.urls'
 
 TEMPLATE_DIRS = (
