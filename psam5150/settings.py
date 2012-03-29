@@ -104,6 +104,8 @@ AUTH_PROFILE_MODULE = 'messageboard.'
 
 ROOT_URLCONF = 'psam5150.urls'
 
+LOGIN_URL = '/messageboard/login/'
+
 TEMPLATE_DIRS = (
     u"%s/templates/" % os.getcwdu(),
     )
@@ -120,6 +122,7 @@ INSTALLED_APPS = (
     'signupform',
     'gameshow',
     'appointments',
+    'messageboard',
     )
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 

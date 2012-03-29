@@ -23,10 +23,9 @@ class UserProfile(models.Model):
     is_hacked = models.BooleanField(default=False)
 
 
-class LoginAuditLog(models.Model):
-    user = models.ForeignKey(User, unique=True, related_name='audit_log', editable=False)
-    created_on = models.DateTimeField(auto_now_add=True, editable=False)
-    ip_address = models.IPAddressField(editable=False)
+class LoginAuditLog(ModelAudit):
+    user = models.ForeignKey(User, related_name='audit_log')
+    ip_address = models.IPAddressField()
 
 
     def delete(self, using=None, force=False):

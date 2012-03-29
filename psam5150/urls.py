@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     url(r'^signup/', include('signupform.urls')),
     url(r'^gameshow/', include('gameshow.urls')),
     url(r'^appointment/', include('appointments.urls')),
+    url(r'^messageboard/', include('messageboard.urls')),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )

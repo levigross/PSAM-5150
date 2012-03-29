@@ -1,0 +1,11 @@
+{% extends "messageboard/base.html" %}
+{% block pageheader %}
+Login Here
+{% endblock %}
+{% block content %}
+    <form class="form-horizontal" action="." method="POST">
+        {% csrf_token %}
+        {{ login_form.as_p }}
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+{% endblock %}
